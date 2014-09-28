@@ -7,7 +7,6 @@ mkdir /var/tmp/amazon-linux
 # Create my-yum.conf
 rm -rf /etc/yum.repos.d/*.repo
 cat <<_EOF_ > /tmp/my-yum.conf 2>&1
-
 [amzn-main]
 name=amzn-main-Base
 mirrorlist=http://repo.ap-northeast-1.amazonaws.com/latest/main/mirror.list
@@ -43,7 +42,7 @@ _EOF_
 
 # Install base packages and openssh
 yum -c /tmp/my-yum.conf --installroot=/var/tmp/amazon-linux -y groupinstall "System Tools"
-yum -c /tmp/my-yum.conf --installroot=/var/tmp/amazon-linux -y install openssh-server tar rootfiles sudo
+yum -c /tmp/my-yum.conf --installroot=/var/tmp/amazon-linux -y install openssh-server tar rootfiles sudo which
 
 # Create device files
 
